@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+android:id="@+id/activity_calendar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="#ffffff"
+android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="visible"
+    android:text="Hello World!"  >
+    <LinearLayout
+        android:id="@+id/week"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="日"
+            android:textSize="12sp" />//Gravity 表示组件的子组件在组件中的位置
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="一"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="二"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="三"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="四"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="五"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="六"
+            android:textSize="12sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:id="@+id/line"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#cfcfcf"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+
+</FrameLayout>
