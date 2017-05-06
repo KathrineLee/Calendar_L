@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.kathrynl.calendar_k.MainActivity"
-    >//tools:context 记录这个布局关联到哪个Activity
+    >
     <RelativeLayout
         android:id="@+id/rl_tool"
         android:layout_width="match_parent"
