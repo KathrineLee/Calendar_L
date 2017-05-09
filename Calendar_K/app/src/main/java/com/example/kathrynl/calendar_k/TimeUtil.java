@@ -36,8 +36,40 @@ public class TimeUtil {
     /**
      * 获取格式化的时间
      */
-    public static String gerFormatTime(String formatter ,long time){
+    public static String getFormatTime(String formatter ,long time){
         SimpleDateFormat format =new SimpleDateFormat(formatter,Locale.getDefault());
         return format.format(new Date(time));
     }
+
+    /**
+     * 判断时间是否为今天 <功能简述>
+     *
+     * @param time
+     * @return
+     */
+    public static boolean isToday(long time) {
+        long now = getSystemTime();
+        int[] nowFields = getTimeFields(now);
+        int[] timeFields = getTimeFields(time);
+        return nowFields[0] == timeFields[0] && nowFields[1] == timeFields[1]
+                && nowFields[2] == timeFields[2];
+    }
+
+    /**
+     * 比较两个日期是否为同一天 <功能简述>
+     *
+     * @param fromCalendar
+     * @param toCalendar
+     * @return
+     */
+    public static boolean isSameDay(Calendar fromCalendar, Calendar toCalendar) {
+        if (fromCalendar == null || toCalendar == null) {
+            return false;
+        }
+        // 年月日都一样，则为同一天
+        return fromCalendar.get(Calendar.YEAR) == toCalendar.get(Calendar.YEAR)
+                && fromCalendar.get(Calendar.MONTH) == toCalendar.get(Calendar.MONTH)
+                && fromCalendar.get(Calendar.DAY_OF_MONTH) == toCalendar.get(Calendar.DAY_OF_MONTH);
+    }
+
 }
