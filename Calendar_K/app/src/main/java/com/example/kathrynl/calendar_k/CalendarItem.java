@@ -1,14 +1,12 @@
 package com.example.kathrynl.calendar_k;
 
 /**
- * Created by Kathryn.L on 2017/5/8.
+ * Created by Kathryn.L on 2017/5/3.
  */
 import java.util.Calendar;
 
 /**
- * 封装日历适配器的数据 <功能简述> </Br> <功能详细描述> </Br>
- *
- * @author kysonX
+ * 封装日历适配器的数据 <功能简述>
  */
 public class CalendarItem {
     // 本月
@@ -23,6 +21,5 @@ public class CalendarItem {
     public boolean isToday = false;
     // 是否为当月（前后会有空）
     public int monthPos;
-    // 是否选中
-//    public boolean isChecked = false;
+
 }

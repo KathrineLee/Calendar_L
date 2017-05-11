@@ -1,8 +1,7 @@
 package com.example.kathrynl.calendar_k;
-
 /**
  * 时间获取
- * Created by Kathryn.L on 2017/5/6.
+ * Created by Kathryn.L on 2017/5/1.
  */
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,9 +21,9 @@ public class TimeUtil {
      * @return
      */
     public static int[] getTimeFields(long time){
-        Calendar calendar =Calendar.getInstance();
-        calendar.setTimeInMillis(time);
-        int[] timeFields = new int[6];
+        Calendar calendar =Calendar.getInstance();//获取当前系统时间
+        calendar.setTimeInMillis(time);//根据毫秒数设置Calendar时间
+        int[] timeFields = new int[6];//以数组方式储存
         timeFields[0]=calendar.get(Calendar.YEAR);
         timeFields[1]=calendar.get(Calendar.MONTH);
         timeFields[2] = calendar.get(Calendar.DAY_OF_MONTH);
@@ -34,18 +33,19 @@ public class TimeUtil {
         return timeFields;
     }
     /**
-     * 获取格式化的时间
+     * 获取格式化的时间（把date类型时间转换为指定格式的字符串）
      */
     public static String getFormatTime(String formatter ,long time){
         SimpleDateFormat format =new SimpleDateFormat(formatter,Locale.getDefault());
+        //Locale.getDefault()获取当前的语言环境，把返回值放进SimpleDateFormat的构造里实现通用化
         return format.format(new Date(time));
+        //返回本地规则格式化后的时间
     }
 
     /**
      * 判断时间是否为今天 <功能简述>
      *
      * @param time
-     * @return
      */
     public static boolean isToday(long time) {
         long now = getSystemTime();

@@ -14,15 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.kathrynl.calendar_k.CalendarGridViewAdapter.OnDaySelectListener;
-import com.example.kathrynl.calendar_k.CommonCalendarView;
 
-/**
- *
- * 测试页面<功能简述> <Br>
- * <功能详细描述> <Br>
- *
- * @author Kyson http://www.hikyson.cn/
- */
+
 public class MainActivity extends Activity {
     private CommonCalendarView mCalendarCardView;
 
@@ -33,7 +26,6 @@ public class MainActivity extends Activity {
         mCalendarCardView = (CommonCalendarView) this.findViewById(R.id.calendar);
         mCalendarCardView.setCurrentDate(Calendar.getInstance());
         mCalendarCardView.setOnDaySelectListener(new OnDaySelectListener() {
-
             @Override
             public void onDaySelectListener(Calendar date) {
 

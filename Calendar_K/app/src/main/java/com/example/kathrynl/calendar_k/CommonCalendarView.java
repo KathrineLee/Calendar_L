@@ -112,9 +112,7 @@ public class CommonCalendarView extends LinearLayout {
     }
 
     /**
-     * set listenr of selecting date <功能简述>
-     *
-     * @param OnDaySelectListener
+     * set listenr of selecting date
      */
     public OnDaySelectListener getOnDaySelectListener(){
         return mOnDaySelectListener;

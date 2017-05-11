@@ -28,17 +28,14 @@ import com.nineoldandroids.animation.ObjectAnimator;
 /**
  * 单个月的日历视图 <功能简述> <Br>
  * 可以定义样式<功能详细描述> <Br>
- *
- * @author Kyson http://www.hikyson.cn/
  */
-@SuppressLint("ClickableViewAccessibility")
+
 public class CalendarCard extends LinearLayout {
 
     /**
      * 控件的日期改变 <功能简述> <Br>
      * <功能详细描述> <Br>
      *
-     * @author Kyson
      */
     public interface OnCalendarChangeListener {
         void onCalendarChange(Calendar cal);
@@ -115,8 +112,7 @@ public class CalendarCard extends LinearLayout {
         View view = LayoutInflater.from(mContext).inflate(
                 R.layout.widget_calendar_card, this, true);
 
-        LinearLayout weekdaysLl = (LinearLayout) view
-                .findViewById(R.id.widget_calendar_card_weekdays);
+        LinearLayout weekdaysLl = (LinearLayout) view.findViewById(R.id.widget_calendar_card_weekdays);
 
         // 设置星期文字样式
         for (int i = 0; i < weekdaysLl.getChildCount(); i++) {
@@ -148,7 +144,6 @@ public class CalendarCard extends LinearLayout {
 
     /**
      * 设置控件的选中日期 <功能简述>
-     *
      * @param calendar
      */
     public void selectCurrentCalendar(Calendar calendar) {
@@ -174,21 +169,12 @@ public class CalendarCard extends LinearLayout {
         notifyDataChanged();
     }
 
-    public void selectBeforeDay() {
-        mCurrentCal.add(Calendar.DAY_OF_MONTH, -1);
-        mGridViewAdapter.setSelectedDate(mCurrentCal);
-        notifyDataChanged();
-    }
-
-    public void selectAfterDay() {
-        mCurrentCal.add(Calendar.DAY_OF_MONTH, 1);
-        mGridViewAdapter.setSelectedDate(mCurrentCal);
-        notifyDataChanged();
-    }
-
+    /**
+     * 用户手势检测
+     */
     private GestureDetector mDetector = new GestureDetector(mContext,
             new SimpleOnGestureListener() {
-
+    //创建GestureDetector实例mDetector
                 @Override
                 public boolean onDown(MotionEvent e) {
                     return true;
@@ -243,7 +229,6 @@ public class CalendarCard extends LinearLayout {
     /**
      * 给gridview设置,设置数据 <功能简述>
      *
-     * @param cal
      */
     private List<CalendarItem> getGvDataByYearAndMonth() {
         // 前面的空格数
@@ -260,29 +245,18 @@ public class CalendarCard extends LinearLayout {
      * 控件数据变化，通知改变样式 <功能简述>
      */
     private void notifyDataChanged() {
-        performAnim();
+       // performAnim();
         mGridViewAdapter.setDatas(getGvDataByYearAndMonth());
-        mGridViewAdapter.notifyDataSetChanged();
+        mGridViewAdapter.notifyDataSetChanged();//强制刷新
         if (mOnCalendarChangeListener != null) {
             mOnCalendarChangeListener.onCalendarChange(mCurrentCal);
         }
     }
-
-    /**
-     * perform this view's anim <功能简述>
-     */
-    private void performAnim() {
-        ObjectAnimator.ofFloat(mGv, "alpha", 0f, 1f).setDuration(150).start();
-    }
-
     /**
      * 为gridview中添加需要展示的数据
-     *
-     * @param tempSum
-     * @param dayNumInMonth
      */
     private List<CalendarItem> getGvListData(int first, int last, int dayCount) {
-        List<CalendarItem> list = new ArrayList<CalendarItem>();
+        List<CalendarItem> list = new ArrayList<>();
         // 当前选中的月份对应的calendar
         Calendar currentCalendar = (Calendar) mCurrentCal.clone();
         currentCalendar.set(Calendar.DAY_OF_MONTH, 1);

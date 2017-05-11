@@ -11,8 +11,6 @@ import android.widget.GridView;
 /**
  * 不带滚动属性的gridview <功能简述> <Br>
  * <功能详细描述> <Br>
- *
- * @author kysonX
  */
 public class GridWithoutScrollView extends GridView {
     public GridWithoutScrollView(Context context) {

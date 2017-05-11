@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,11 +67,10 @@
             android:singleLine="true"
             android:text="回到今天" />
     </RelativeLayout>
-
     <com.example.kathrynl.calendar_k.CalendarCard
         android:id="@+id/widget_calendar_common_view_calendarcard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         calendar:daySelector="@drawable/tl_widget_calendar_item_light_selector"
         calendar:dayTextStyle="@style/textView_calendar_common_day_normal"
         calendar:notCurrentTextStyle="@style/textView_sp12_grey_bright"
