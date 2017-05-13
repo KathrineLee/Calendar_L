@@ -80,13 +80,14 @@ public class CommonCalendarView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 mCalendarCard.selectCurrentCalendar(Calendar.getInstance());
-            }
+        }
         });
         mCalendarCard.setOnCalendarChangeListener(new OnCalendarChangeListener() {
 
                     @Override
                     public void onCalendarChange(Calendar cal) {
-                        mDateTextView.setText(String.valueOf(cal.get(Calendar.YEAR)) + DATE_SPLIT + String.valueOf(cal.get(Calendar.MONTH) + 1));
+                        mDateTextView.setText(String.valueOf(cal.get(Calendar.YEAR)) + DATE_SPLIT + String.
+                                valueOf(cal.get(Calendar.MONTH) + 1));
                         mCalendarCard.getLayoutParams().height = LayoutParams.MATCH_PARENT;
                     }
                 });

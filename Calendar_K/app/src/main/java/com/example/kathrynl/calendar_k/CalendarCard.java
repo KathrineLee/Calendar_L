@@ -26,16 +26,14 @@ import com.example.kathrynl.calendar_k.TimeUtil;
 import com.nineoldandroids.animation.ObjectAnimator;
 
 /**
- * 单个月的日历视图 <功能简述> <Br>
- * 可以定义样式<功能详细描述> <Br>
+ * 单个月的日历视图
+ * 可以定义样式
  */
 
 public class CalendarCard extends LinearLayout {
 
     /**
-     * 控件的日期改变 <功能简述> <Br>
-     * <功能详细描述> <Br>
-     *
+     * 控件的日期改变
      */
     public interface OnCalendarChangeListener {
         void onCalendarChange(Calendar cal);
@@ -43,15 +41,15 @@ public class CalendarCard extends LinearLayout {
 
     private Context mContext;
 
-    private GridWithoutScrollView mGv;
+    private GridWithoutScrollView mGv;//用一个GridWithoutScrollView格式
 
-    private CalendarGridViewAdapter mGridViewAdapter;
+    private CalendarGridViewAdapter mGridViewAdapter;//使用适配器
 
-    private Calendar mCurrentCal = Calendar.getInstance();
+    private Calendar mCurrentCal = Calendar.getInstance();//获取日历
 
-    private OnCalendarChangeListener mOnCalendarChangeListener;
+    private OnCalendarChangeListener mOnCalendarChangeListener;//改变监听
 
-    private OnDaySelectListener mOnDaySelectListener;
+    private OnDaySelectListener mOnDaySelectListener;//选择监听
 
     public CalendarCard(Context context) {
         this(context, null);
@@ -111,8 +109,11 @@ public class CalendarCard extends LinearLayout {
 
         View view = LayoutInflater.from(mContext).inflate(
                 R.layout.widget_calendar_card, this, true);
+        //初始化一个View获取widget_calendar_card的布局
 
         LinearLayout weekdaysLl = (LinearLayout) view.findViewById(R.id.widget_calendar_card_weekdays);
+        //在View中放置widget_calendar_card_weekdays
+        //  父.findviewbyid(R.id.xxx)
 
         // 设置星期文字样式
         for (int i = 0; i < weekdaysLl.getChildCount(); i++) {
@@ -125,7 +126,8 @@ public class CalendarCard extends LinearLayout {
         mGv = (GridWithoutScrollView) view
                 .findViewById(R.id.widget_calendar_card_gv);
         mGridViewAdapter = new CalendarGridViewAdapter(mContext);
-        mGv.setAdapter(mGridViewAdapter);
+        mGv.setAdapter(mGridViewAdapter);//将网格布局GridwithoutScrollView和数据通过适配器连接在一起
+        //绑定数据
 
         mGridViewAdapter.initStyle(mTodayTextStyle, mNotCurrentTextStyle,
                 mDayTextStyle, mDaySelector);

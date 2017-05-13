@@ -9,8 +9,7 @@ import android.util.AttributeSet;
 import android.widget.GridView;
 
 /**
- * 不带滚动属性的gridview <功能简述> <Br>
- * <功能详细描述> <Br>
+ * gridview
  */
 public class GridWithoutScrollView extends GridView {
     public GridWithoutScrollView(Context context) {
@@ -24,7 +23,7 @@ public class GridWithoutScrollView extends GridView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
-                MeasureSpec.AT_MOST);
+                MeasureSpec.AT_MOST);//MAX_VALUE右移2位后，即使不是最大整数了， view的高度也一般不可能超过它
         super.onMeasure(widthMeasureSpec, expandSpec);
     }
 }

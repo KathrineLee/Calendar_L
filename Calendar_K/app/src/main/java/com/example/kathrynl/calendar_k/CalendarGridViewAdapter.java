@@ -69,7 +69,6 @@ public class CalendarGridViewAdapter extends BaseAdapter{
     /**
      * 根据当前位置获取指定的文件信息
      * @param position
-     * @return
      */
     @Override
     public CalendarItem getItem(int position) {
@@ -79,7 +78,6 @@ public class CalendarGridViewAdapter extends BaseAdapter{
     /**
      * 根据当前位置返回当前数据项在LIST中的行ID
      * @param position
-     * @return
      */
     @Override
     public long getItemId(int position) {
